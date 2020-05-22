@@ -1,0 +1,502 @@
+//
+//For Alarms:
+String currentAlarm or String alarm
+/*events*/
+alarmObject.setValue([name: "alarm", value: "both", deviceId: "alarmID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+alarmObject.setValue([name: "alarm", value: "siren", deviceId: "alarmID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+alarmObject.setValue([name: "alarm", value: "strobe", deviceId: "alarmID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+alarmObject.setValue([name: "alarm", value: "off", deviceId: "alarmID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For Contact Sensor:
+String currentContact or String contactState
+/*events*/
+/////
+contactObject.setValue([name: "contact", value: "open", deviceId: "contactSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+contactObject.setValue([name: "contact", value: "closed", deviceId: "contactSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For DoorControl:
+String doorState
+/*events*/
+doorControlObject.setValue([name: "doorState", value: "closed", deviceId: "doorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+doorControlObject.setValue([name: "doorState", value: "open", deviceId: "doorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For Location:
+String location.mode
+/*events*/
+locationObject.setValue([name: "Location", value: "away", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "Location", value: "home", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "Location", value: "night", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "sunset", value: "sunset", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "sunrise", value: "sunrise", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "sunsetTime", value: "sunset", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+locationObject.setValue([name: "sunriseTime", value: "sunrise", deviceId: "locationID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For Locks:
+String currentLock or String lockState
+/*events*/
+lockObject.setValue([name: "lock", value: "locked", deviceId: "lockID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+lockObject.setValue([name: "lock", value: "unlocked", deviceId: "lockID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For MotionSensors:
+String currentMotion or String motion
+/*events*/
+motionSensorObject.setValue([name: "motion", value: "active", deviceId: "motionSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+motionSensorObject.setValue([name: "motion", value: "inactive", deviceId: "motionSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For MusicPlayer:
+String status
+int level
+String trackDescription
+String trackData
+String mute
+/*events*/
+musicPlayerObject.setValue([name: "status", value: "play", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "status", value: "stop", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "status", value: "pause", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "status", value: "on", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "status", value: "off", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "level", value: "36"/*A number between 0 to 100 as a charge*/, deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "trackDescription", value: "someDescriptions", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "trackData", value: "someTrack", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "mute", value: "unmuted", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+musicPlayerObject.setValue([name: "mute", value: "muted", deviceId: "musicPlayerID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For PresenceSensor:
+String currentPresence or String presenceState
+/*events*/
+presenceSensorObject.setValue([name: "presence", value: "present", deviceId: "presenceSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"presence":"1","dni":"mobile0"}'])
+presenceSensorObject.setValue([name: "presence", value: "not present", deviceId: "presenceSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"presence":"0","dni":"mobile0"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For SmokeDetector:
+String currentSmokeValue or String smoke
+/*events*/
+smokeDetectorObject.setValue([name: "smoke", value: "clear", deviceId: "smokeDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+smokeDetectorObject.setValue([name: "smoke", value: "detected", deviceId: "smokeDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+smokeDetectorObject.setValue([name: "smoke", value: "tested", deviceId: "smokeDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+smokeDetectorObject.setValue([name: "battery", value: "5"/*A number between 0 to 100 as a charge*/, deviceId: "smokeDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For Thermostats:(we have different features in each line)
+int heatingSetpoint or currentHeatingSetpoint //heating set point
+int thermostatSetpoint //normal set point
+int coolingSetpoint or currentCoolingSetpoint //cooling set point
+String thermostatOperatingState //operating state
+String thermostatFanMode //fan mode
+String thermostatMode or currentThermostatMode //mode
+/*events*/
+thermostatObject.setValue([name: "thermostatMode", value: "auto", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatMode", value: "cool", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatMode", value: "emergencyHeat", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatMode", value: "heat", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatMode", value: "off", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "temperature", value: "55", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "heatingSetpoint", value: "40", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "coolingSetpoint", value: "60", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatSetpoint", value: "50", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatFanMode", value: "auto", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatFanMode", value: "fanCirculate", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatFanMode", value: "circulate", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatFanMode", value: "fanOn", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatFanMode", value: "on", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "cooling", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "fan only", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "heating", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "idle", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "pending cool", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "pending heat", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+thermostatObject.setValue([name: "thermostatOperatingState", value: "vent economizer", deviceId: "thermostatID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For Switches:
+String currentSwitch or switchState
+/*events*/
+switchObject.setValue([name: "switch", value: "off", deviceId: "switchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+switchObject.setValue([name: "switch", value: "on", deviceId: "switchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For appTouch:
+/*events*/
+appObject.setValue([name: "Touched", value: "touched", deviceId: "appTouchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For nfcTouch:
+/*events*/
+touchSensorObject.setValue([name: "nfcTouch", value: "touched", deviceId: "nfcSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For aeonKeyFob push button:
+/*events*/
+aeonKeyFobObject.setValue([name: "button", value: "pushed", deviceId: "aeonKeyFobID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+aeonKeyFobObject.setValue([name: "button", value: "held", deviceId: "aeonKeyFobID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For acceleration sensor:
+String currentAcceleration or String acceleration
+/*events*/
+accelerationSensorObject.setValue([name: "acceleration", value: "active", deviceId: "accelerationSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+accelerationSensorObject.setValue([name: "acceleration", value: "inactive", deviceId: "accelerationSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For battery:
+int currentBattery or int battery
+/*events*/
+batteryObject.setValue([name: "battery", value: "50"/*number between 0 to 100 as a string*/, deviceId: "batteryID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For beacon sensor:
+String currentPresence or String presence
+/*events*/
+beaconSensorObject.setValue([name: "presence", value: "present", deviceId: "beaconeSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"presence":"1","dni":"mobile0"}'])
+beaconSensorObject.setValue([name: "presence", value: "not present", deviceId: "beaconSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"presence":"0","dni":"mobile0"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For carbon monoxide:
+String currentCarbonMonoxideValue or String carbonMonoxide
+/*events*/
+carbonMonoxideDetectorObject.setValue([name: "carbonMonoxide", value: "clear", deviceId: "carbonMonoxideDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+carbonMonoxideDetectorObject.setValue([name: "carbonMonoxide", value: "detected", deviceId: "carbonMonoxideDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+carbonMonoxideDetectorObject.setValue([name: "carbonMonoxide", value: "tested", deviceId: "carbonMonoxideDetectorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For color control:
+String color
+int hue
+int saturation
+/*events*/
+colorControlObject.setValue([name: "color", value: "red", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "hue", value: "50", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "saturation", value: "50", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "level", value: "50", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "switch", value: "on", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "switch", value: "off", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorControlObject.setValue([name: "colorTemperature", value: "50", deviceId: "colorControlID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For energy meter:
+int energy or int currentEnergy
+/*events*/
+energyMeterObject.setValue([name: "energy", value: "45"/*A number between 0 to 100 as a charge*/, deviceId: "energyMeterID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For illuminance measurement:
+int illuminance or int currentIlluminance
+/*events*/
+illuminanceMeasurementObject.setValue([name: "illuminance", value: "70"/*A number between 0 to 100 as a charge*/, deviceId: "illuminanceMeasurementID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For power meter:
+int power or int currentPower
+/*events*/
+powerMeterObject.setValue([name: "power", value: "70"/*A number between 0 to 100 as a charge*/, deviceId: "powerMeterID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For relative humidity measurement:
+int humidity or int currentHumidity
+/*events*/
+humidityMeasurementObject.setValue([name: "humidity", value: "70"/*A number between 0 to 100 as a charge*/, deviceId: "humidityMeasurementID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For relay switches:
+String currentSwitch or switchState
+/*events*/
+relaySwitchObject.setValue([name: "switch", value: "off", deviceId: "relaySwitchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+relaySwitchObject.setValue([name: "switch", value: "on", deviceId: "relaySwitchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For sleep sensor:
+String sleeping
+/*events*/
+sleepSensorObject.setValue([name: "sleeping", value: "sleeping", deviceId: "sleepSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+sleepSensorObject.setValue([name: "sleeping", value: "not sleeping", deviceId: "sleepSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For step sensor:
+int goal
+int steps
+/*events*/
+stepSensorObject.setValue([name: "goal", value: "100"/*A number*/, deviceId: "stepSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+stepSensorObject.setValue([name: "steps", value: "46"/*A number*/, deviceId: "stepSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For switch levels:
+int level or int rate
+/*events*/
+switchLevelObject.setValue([name: "level", value: "45"/*A number between 0 to 100*/, deviceId: "switchLevelID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+switchLevelObject.setValue([name: "switch", value: "on", deviceId: "switchLevelID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+switchLevelObject.setValue([name: "switch", value: "off", deviceId: "switchLevelID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For temperature measurement:
+int temperature
+/*events*/
+temperatureMeasurementObject.setValue([name: "temperature", value: "45"/*A number between 0 to 100*/, deviceId: "temperatureMeasurementID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For valve:
+String valve
+/*events*/
+valveObject.setValue([name: "contact", value: "closed", deviceId: "valveID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+valveObject.setValue([name: "contact", value: "open", deviceId: "valveID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For water sensor:
+String water
+/*events*/
+waterSensorObject.setValue([name: "water", value: "dry", deviceId: "waterSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+waterSensorObject.setValue([name: "water", value: "wet", deviceId: "waterSensorID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For color temperature:
+int colorTemperature
+String switchState
+/*events*/
+colorTemperatureObject.setValue([name: "switch", value: "off", deviceId: "switchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorTemperatureObject.setValue([name: "switch", value: "on", deviceId: "switchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+colorTemperatureObject.setValue([name: "colorTemperature", value: "13000", deviceId: "switchID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For button:
+String button
+/*events*/
+buttonObject.setValue([name: "button", value: "held", deviceId: "buttonID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"buttonNumber": 1}'])
+buttonObject.setValue([name: "button", value: "pushed", deviceId: "buttonID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"buttonNumber": 1}'])
+/////
+/*events*/
+//
+-------------------------------------------------------------------------------
+
+
+//For threeAxis:
+LinkedHashMap threeAxis
+/*events*/
+threeAxisObject.setValue([name: "threeAxis", value: '{"x": 1, "y": 2, "z": 3}', deviceId: "threeAxisID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+threeAxisObject.setValue([name: "status", value: '{"x": 1, "y": 2, "z": 3}', deviceId: "threeAxisID0", descriptionText: "",
+displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
+/////
+/*events*/
+//
+

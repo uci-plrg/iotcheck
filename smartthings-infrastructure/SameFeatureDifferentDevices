@@ -1,0 +1,36 @@
+///////////
+name of event:
+"battery"
+used in:
+'Battery class' + 'Smoke detector class'
+///////////
+name of event:
+"presence"
+used in:
+'Beacon sensor class' + 'Presence sensor class'
+///////////
+name of event:
+"carbonMonoxide"
+used in:
+'Carbon monoxide class' + 'Smoke detector class'
+///////////
+name of event:
+"contact"
+used in:
+'Contact sensor class' + 'Valve class'
+///////////
+name of event:
+"level"
+used in:
+'Switch level class' + 'Music player class'
+///////////
+name of event:
+"temperature"
+used in:
+'Temperature measurement class' + 'Thermostat class'
+///////////
+name of event:
+"switch"
+used in:
+'Switches class' + 'Switch level class' + 'Relay switch class'
+

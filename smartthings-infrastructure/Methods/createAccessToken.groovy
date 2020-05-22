@@ -1,0 +1,5 @@
+/////////////////////////////////////////////////////////////////////
+def createAccessToken() {
+	state.accessToken = "accessToken"
+	return state.accessToken
+}

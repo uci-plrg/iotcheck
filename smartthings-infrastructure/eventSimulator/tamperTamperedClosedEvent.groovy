@@ -1,0 +1,2 @@
+			contactObject.setValue([name: "tamper.tampered", value: "closed", deviceId: "contactSensorID0", descriptionText: "",
+					displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])

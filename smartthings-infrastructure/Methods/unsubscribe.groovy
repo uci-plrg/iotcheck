@@ -1,0 +1,6 @@
+/////////////////////////////////////////////////////////////////////
+def unsubscribe() {
+	objectList.clear()
+	eventList.clear()
+	functionList.clear()
+}

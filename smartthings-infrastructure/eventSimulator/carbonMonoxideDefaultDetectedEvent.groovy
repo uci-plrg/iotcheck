@@ -1,0 +1,2 @@
+			carbonMonoxideDetectorObject.setValue([name: "carbonMonoxide.detected", value: "detected", deviceId: "carbonMonoxideDetectorID0", descriptionText: "",
+					displayed: true, linkText: "", isStateChange: false, unit: "", data: '{"info": "info"}'])
