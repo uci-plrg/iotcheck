@@ -3,7 +3,7 @@ import os
 #Create directory for files to append in the main file
 
 #Extract information from preferences and subscribe method to create required objects
-os.system("python Extractor/ExtractorScript.py")
+os.system("python3 Extractor/ExtractorScript.py")
 
 #Files for both Apps
 Out = open("main.groovy", "w+")
