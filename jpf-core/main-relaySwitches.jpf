@@ -1,11 +1,7 @@
 target = main
 
 # This is the listener that can detect variable write-after-write conflicts
-#listener=gov.nasa.jpf.listener.VariableConflictTracker
-#listener=gov.nasa.jpf.listener.StateReducer
-#listener=gov.nasa.jpf.listener.StateReducerOld
-#listener=gov.nasa.jpf.listener.VariableConflictTracker,gov.nasa.jpf.listener.StateReducer
-listener=gov.nasa.jpf.listener.ConflictTrackerOld
+listener=gov.nasa.jpf.listener.ConflictTracker
 
 # Potentially conflicting variables
 # Alarms

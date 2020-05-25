@@ -6,13 +6,13 @@
  * The Java Pathfinder core (jpf-core) platform is licensed under the
  * Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0.
+ * 
+ *        http://www.apache.org/licenses/LICENSE-2.0. 
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * See the License for the specific language governing permissions and 
  * limitations under the License.
  */
 package gov.nasa.jpf.listener;
@@ -37,11 +37,10 @@ import java.util.*;
  * Listener using data flow analysis to find conflicts between smartApps.
  **/
 
-public class ConflictTrackerOld extends ListenerAdapter {
-  // Public graph: to allow the StateReducer class to access it
-  public static final HashMap<Integer, Node> nodes = new HashMap<Integer, Node>(); // Nodes of a graph
-  // Private
+public class ConflictTracker extends ListenerAdapter {
+
   private final PrintWriter out;
+  private final HashMap<Integer, Node> nodes = new HashMap<Integer, Node>(); // Nodes of a graph
   private final HashSet<String> conflictSet = new HashSet<String>(); // Variables we want to track
   private final HashSet<String> appSet = new HashSet<String>(); // Apps we want to find their conflicts
   private final HashSet<String> manualSet = new HashSet<String>(); // Writer classes with manual inputs to detect direct-direct(No Conflict) interactions
@@ -53,17 +52,19 @@ public class ConflictTrackerOld extends ListenerAdapter {
   private String operation;
   private String detail;
   private String errorMessage;
+  private String varName;
   private int depth;
   private int id;
   private boolean manual = false;
   private boolean conflictFound = false;
   private int currentEvent = -1;
   private boolean debugMode = false;
+  private int popRef = 0;
 
   private final String SET_LOCATION_METHOD = "setLocationMode";
   private final String LOCATION_VAR = "locationMode";
 
-  public ConflictTrackerOld(Config config, JPF jpf) {
+  public ConflictTracker(Config config, JPF jpf) {
     out = new PrintWriter(System.out, true);
     debugMode = config.getBoolean("debug_mode", false);
 
@@ -114,7 +115,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     ArrayList<Update> edgeUpdates = e.getUpdates();
     HashMap<IndexObject, Update> lastupdate = new HashMap<IndexObject, Update>();
     boolean changed = false;
-
+    
     //Go through each update on the current transition
     for(int i=0; i<edgeUpdates.size(); i++) {
       Update u = edgeUpdates.get(i);
@@ -136,7 +137,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
           if (conflicts(u, u2)) {
             //throw new RuntimeException(createErrorMessage(u, u2));
             conflictFound = true;
-            errorMessage = createErrorMessage(u, u2);
+	        errorMessage = createErrorMessage(u, u2);
           }
         }
       }
@@ -156,7 +157,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
       //Make sure destination has hashset in map
       if (!dstUpdates.containsKey(io))
         dstUpdates.put(io, new HashSet<Update>());
-
+      
       changed |= dstUpdates.get(io).add(lastupdate.get(io));
     }
     return changed;
@@ -166,18 +167,18 @@ public class ConflictTrackerOld extends ListenerAdapter {
   //Have conflict if same device, same attribute, different app, different vaalue
   boolean conflicts(Update u, Update u2) {
     return (!u.getApp().equals(u2.getApp())) &&
-            u.getDeviceId().equals(u2.getDeviceId()) &&
-            u.getAttribute().equals(u2.getAttribute()) &&
-            (!u.getValue().equals(u2.getValue()));
+      u.getDeviceId().equals(u2.getDeviceId()) &&
+      u.getAttribute().equals(u2.getAttribute()) &&
+      (!u.getValue().equals(u2.getValue()));
   }
-
+  
   String createErrorMessage(Update u, Update u2) {
     String message = "Conflict found between the two apps. "+u.getApp()+
-            " has written the value: "+u.getValue()+
-            " to the attribute: "+u.getAttribute()+" while "
-            +u2.getApp()+" is writing the value: "
-            +u2.getValue()+" to the same variable!";
-    System.out.println(message);
+		     " has written the value: "+u.getValue()+
+      " to the attribute: "+u.getAttribute()+" while "
+      +u2.getApp()+" is writing the value: "
+      +u2.getValue()+" to the same variable!";
+    System.out.println(message);	
     return message;
   }
 
@@ -199,7 +200,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     Integer id;
     Vector<Edge> outEdges = new Vector<Edge>();
     HashMap<IndexObject, HashSet<Update>> lastUpdates = new HashMap<IndexObject,  HashSet<Update>>();
-
+    
     Node(Integer id) {
       this.id = id;
     }
@@ -215,7 +216,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     void addOutEdge(Edge e) {
       outEdges.add(e);
     }
-
+    
     HashMap<IndexObject, HashSet<Update>> getLastUpdates() {
       return lastUpdates;
     }
@@ -227,7 +228,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     Transition transition;
     int eventNumber;
     ArrayList<Update> updates = new ArrayList<Update>();
-
+    
     Edge(Node src, Node dst, Transition t, int evtNum, ArrayList<Update> _updates) {
       this.source = src;
       this.destination = dst;
@@ -261,7 +262,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     String attribute;
     String value;
     boolean ismanual;
-
+    
     Update(String _appName, String _deviceId, String _attribute, String _value, boolean _ismanual) {
       this.appName = _appName;
       this.deviceId = _deviceId;
@@ -273,7 +274,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     boolean isManual() {
       return ismanual;
     }
-
+    
     String getApp() {
       return appName;
     }
@@ -285,7 +286,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     String getAttribute() {
       return attribute;
     }
-
+    
     String getValue() {
       return value;
     }
@@ -307,9 +308,9 @@ public class ConflictTrackerOld extends ListenerAdapter {
 
     public int hashCode() {
       return (getDeviceId().hashCode() << 3) ^
-              (getAttribute().hashCode() << 2) ^
-              (getApp().hashCode() << 1) ^
-              getValue().hashCode();
+        (getAttribute().hashCode() << 2) ^
+        (getApp().hashCode() << 1) ^
+        getValue().hashCode();
     }
 
     public String toString() {
@@ -322,7 +323,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     IndexObject(Update _u) {
       this.u = _u;
     }
-
+    
     public boolean equals(Object o) {
       if (!(o instanceof IndexObject))
         return false;
@@ -334,7 +335,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
       return (u.getDeviceId().hashCode() << 1) ^ u.getAttribute().hashCode();
     }
   }
-
+  
   @Override
   public void stateRestored(Search search) {
     id = search.getStateId();
@@ -343,7 +344,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     detail = null;
 
     out.println("The state is restored to state with id: "+id+", depth: "+depth);
-
+  
     // Update the parent node
     parentNode = getNode(id);
   }
@@ -391,7 +392,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
       currentEvent = icsCG.getNextChoice();
     }
   }
-
+  
   @Override
   public void stateAdvanced(Search search) {
     String theEnd = null;
@@ -426,7 +427,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     }
 
     out.println("The state is forwarded to state with id: "+id+", depth: "+depth+" which is "+detail+" state: "+"% "+theEnd);
-
+    
     // Update the parent node
     parentNode = currentNode;
   }
@@ -459,7 +460,7 @@ public class ConflictTrackerOld extends ListenerAdapter {
     frame = ti.getTopFrame();
 
     if ((inst instanceof JVMLocalVariableInstruction) ||
-            (inst instanceof JVMFieldInstruction))
+        (inst instanceof JVMFieldInstruction))
     {
       if (frame.getTopPos() < 0)
         return(null);
@@ -511,13 +512,13 @@ public class ConflictTrackerOld extends ListenerAdapter {
 
         if (ci.getName().equals("java.lang.String"))
           return('"' + ei.asString() + '"');
-
+	
         return(ei.toString());
 
       default:
         System.err.println("Unknown type: " + type);
         return(null);
-    }
+     }
   }
 
   private String getArrayValue(ThreadInfo ti, byte type) {
@@ -613,12 +614,47 @@ public class ConflictTrackerOld extends ListenerAdapter {
     }
 
     if (conflictFound) {
-
       StringBuilder sb = new StringBuilder();
       sb.append(errorMessage);
       Instruction nextIns = ti.createAndThrowException("java.lang.RuntimeException", sb.toString());
       ti.setNextPC(nextIns);
     } else {
+      // Check if we are ready to pop the values
+      if (popRef == 2) {
+      	byte type = getType(ti, executedInsn);
+        varName = getValue(ti, executedInsn, type);
+	String writer = getWriter(ti.getStack(), appSet);
+
+	popRef = popRef-1;
+      } else if (popRef == 1) {
+	byte type = getType(ti, executedInsn);
+	String value = getValue(ti, executedInsn, type);
+	String writer = getWriter(ti.getStack(), appSet);	
+
+	for (String var: conflictSet) {
+		if (varName.contains(var)) {
+			if (writer != null)
+				writeWriterAndValue(writer, varName, value);
+		}
+	}
+
+      	popRef = popRef-1;
+      }
+
+
+      if (executedInsn.getMnemonic().equals("getfield")) {
+      	if (executedInsn.toString().contains("deviceValueSmartThing") || 
+	    executedInsn.toString().contains("deviceIntValueSmartThing")) {
+		if (executedInsn.getNext() != null) {
+			if (executedInsn.getNext().getMnemonic().contains("load")) {
+
+				if (executedInsn.getNext().getNext() != null)
+					if (executedInsn.getNext().getNext().getMnemonic().contains("load"))
+						popRef = 2;
+			}
+      		}
+	}
+      }
 
       if (executedInsn instanceof WriteInstruction) {
         String varId = ((WriteInstruction) executedInsn).getFieldInfo().getFullName();
@@ -626,25 +662,10 @@ public class ConflictTrackerOld extends ListenerAdapter {
         if (varId.contains("isManualTransaction")) {
           byte type = getType(ti, executedInsn);
           String value = getValue(ti, executedInsn, type);
-          System.out.println();
+
           manual = (value.equals("true"))?true:false;
         }
-        for (String var : conflictSet) {
-          if (varId.contains(var)) {
-            // Get variable info
-            byte type = getType(ti, executedInsn);
-            String value = getValue(ti, executedInsn, type);
-            String writer = getWriter(ti.getStack(), appSet);
-
-            // Just return if the writer is not one of the listed apps in the .jpf file
-            if (writer == null)
-              return;
-
-            // Update the current updates
-            writeWriterAndValue(writer, var, value);
-          }
-        }
       }
-    }
+    }    
   }
 }
