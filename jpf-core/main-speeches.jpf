@@ -12,7 +12,7 @@ listener=gov.nasa.jpf.listener.ConflictTrackerOld
 #variables=currentAlarm
 # Locks
 #variables=lock
-variables=currentLock
+#variables=currentLock
 # Thermostats
 #variables=currentHeatingSetpoint,thermostatSetpoint,currentCoolingSetpoint,thermostatOperatingState,thermostatFanMode,currentThermostatMode
 # Switches
@@ -22,7 +22,7 @@ variables=currentLock
 # Dimmers
 #variables=currentSwitch,currentLevel
 # Speech Synthesizers
-#variables=level,oneUser
+variables=level,oneUser
 # Music players
 #variables=status,duration,level,trackDescription,trackData,mute
 # Relay switches

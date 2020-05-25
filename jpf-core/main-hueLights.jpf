@@ -12,13 +12,13 @@ listener=gov.nasa.jpf.listener.ConflictTrackerOld
 #variables=currentAlarm
 # Locks
 #variables=lock
-variables=currentLock
+#variables=currentLock
 # Thermostats
 #variables=currentHeatingSetpoint,thermostatSetpoint,currentCoolingSetpoint,thermostatOperatingState,thermostatFanMode,currentThermostatMode
 # Switches
 #variables=currentSwitch
 # Lights
-#variables=colorChanged,currentHue,currentSaturation,currentLevel,currentSwitch,colorTemperature
+variables=colorChanged,currentHue,currentSaturation,currentLevel,currentSwitch,colorTemperature
 # Dimmers
 #variables=currentSwitch,currentLevel
 # Speech Synthesizers

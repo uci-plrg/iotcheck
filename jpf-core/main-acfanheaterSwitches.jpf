@@ -6,19 +6,17 @@ target = main
 #listener=gov.nasa.jpf.listener.StateReducerOld
 #listener=gov.nasa.jpf.listener.VariableConflictTracker,gov.nasa.jpf.listener.StateReducer
 listener=gov.nasa.jpf.listener.ConflictTrackerOld
-#listener=gov.nasa.jpf.listener.DPORStateReducer
-#listener=gov.nasa.jpf.listener.DPORStateReducer,gov.nasa.jpf.listener.ConflictTrackerOld
 
 # Potentially conflicting variables
 # Alarms
-variables=currentAlarm
+#variables=currentAlarm
 # Locks
 #variables=lock
 #variables=currentLock
 # Thermostats
 #variables=currentHeatingSetpoint,thermostatSetpoint,currentCoolingSetpoint,thermostatOperatingState,thermostatFanMode,currentThermostatMode
 # Switches
-#variables=currentSwitch
+variables=currentSwitch
 # Lights
 #variables=colorChanged,currentHue,currentSaturation,currentLevel,currentSwitch,colorTemperature
 # Dimmers
@@ -43,13 +41,7 @@ apps=App1,App2
 # We do not report any conflicts if the value is true
 #debug_mode=true
 
-# Debug mode for StateReducer
-printout_state_transition=true
-#activate_state_reduction=false
-file_output=moreStatistics
-
 # Timeout in minutes (default is 0 which means no timeout)
-#timeout=1440
 timeout=30
 
 #search.class = gov.nasa.jpf.search.heuristic.RandomHeuristic
