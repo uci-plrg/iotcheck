@@ -1,4 +1,4 @@
-##initial-state-event-streamer.groovy
+initial-state-event-streamer.groovy
 keep-me-cozy.groovy
 keep-me-cozy-ii.groovy
 make-it-so.groovy
@@ -7,14 +7,14 @@ thermostat-auto-off.groovy
 thermostat-mode-director.groovy
 thermostat-window-check.groovy
 whole-house-fan.groovy
-##buffered-event-sender.groovy
+buffered-event-sender.groovy
 FireCO2Alarm.groovy
-##groveStreams.groovy
+groveStreams.groovy
 hvac-auto-off.smartapp.groovy
-##influxdb-logger.groovy
-##initial-state-event-sender.groovy
-##initialstate-smart-app-v1.2.0.groovy
-##unbuffered-event-sender.groovy
+influxdb-logger.groovy
+initial-state-event-sender.groovy
+initialstate-smart-app-v1.2.0.groovy
+unbuffered-event-sender.groovy
 WindowOrDoorOpen.groovy
-###The following is a very buggy app
+###The following is removed: it is a very buggy app
 ###talking-alarm-clock.groovy
