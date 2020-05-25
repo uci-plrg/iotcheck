@@ -17,9 +17,10 @@ def checkResult(logDirName):
 		elif "java.lang.RuntimeException: Conflict between apps App1 and App2:" in line:
 			result = "conflict"
 			break
-		elif "Direct-Direct Interaction detected:" in line:
-			result = "direct-direct"
-			break
+		# TODO: We are now detecting Direct-Direct interaction in the analysis
+		#elif "Direct-Direct Interaction detected:" in line:
+		#	result = "direct-direct"
+		#	break
 	
 	return result
 
@@ -41,7 +42,20 @@ def writeErrorLog(jpfLogDir, logName, error):
 	writeError = open(jpfLogDir + logName, "w+")
 	writeError.write(error)
 	writeError.close()
-	
+
+# Activate or deactivate RandomHeuristic search strategy in main.jpf
+# By default, the DFSearch strategy is used
+def changeSearchStrategy(newString, oldString):
+	print("==> Changing search strategy...\n")
+	fin = open("../jpf-core/main.jpf", "rt")
+	config = fin.read()
+	config = config.replace(oldString, newString)
+	#print(config)
+	fin.close()
+	fin = open("../jpf-core/main.jpf", "wt")
+	fin.write(config)
+	fin.close
+
 # Input parameters:
 # - JPF directory
 # - JPF logs directory
@@ -120,27 +134,24 @@ for item in appPairs:
 		os.system("make main")
 		# Call JPF
 		print("==> Calling JPF and generate logs ...\n")
+		# Change search strategy to DFSearch
+		changeSearchStrategy('search.class = gov.nasa.jpf.search.DFSearch',
+				     'search.class = gov.nasa.jpf.search.heuristic.RandomHeuristic')
 		os.system("cd " + jpfDir + ";./run.sh " + jpfLogDir + logName + " main.jpf")
 	else:
 		# This is for specific error, e.g., direct-direct interaction that we need to skip
 		writeErrorLog(jpfLogDir, logName, error)
 		
 	result = checkResult(jpfLogDir + logName)
+	# If not a conflict then model-check again using heuristic strategy
+	if result != "conflict":
+		# Call JPF again with heuristic strategy
+		print("==> Changing into RandomHeuristic search and calling JPF again ...\n")
+		# Change search strategy to RandomHeuristic
+		changeSearchStrategy('search.class = gov.nasa.jpf.search.heuristic.RandomHeuristic',
+				     'search.class = gov.nasa.jpf.search.DFSearch')
+		os.system("cd " + jpfDir + ";./run.sh " + jpfLogDir + logName + " main.jpf")
+
 	writeLogList.write(logName + "\t\t" + result + "\n")
 
 writeLogList.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,7 @@
 target = main
 
 # This is the listener that can detect variable write-after-write conflicts
-#listener=gov.nasa.jpf.listener.VariableConflictTracker
-#listener=gov.nasa.jpf.listener.StateReducer
-#listener=gov.nasa.jpf.listener.StateReducerOld
-#listener=gov.nasa.jpf.listener.VariableConflictTracker,gov.nasa.jpf.listener.StateReducer
-listener=gov.nasa.jpf.listener.ConflictTrackerOld
+listener=gov.nasa.jpf.listener.ConflictTracker
 
 # Potentially conflicting variables
 # Alarms
@@ -44,8 +40,4 @@ apps=App1,App2
 # Timeout in minutes (default is 0 which means no timeout)
 timeout=30
 
-#search.class = gov.nasa.jpf.search.heuristic.RandomHeuristic
-#search.heuristic.beam_search=true
-#search.class = gov.nasa.jpf.search.heuristic.UserHeuristic
-#search.class = gov.nasa.jpf.search.heuristic.BFSHeuristic
-#search.class = gov.nasa.jpf.search.heuristic.DFSHeuristic
+search.class = gov.nasa.jpf.search.DFSearch

@@ -38,6 +38,7 @@ execute_iotcheck_example()
 {
 	if [ $1 == 'exampleConflicts' ] || [ $1 == 'exampleNonConflicts' ]
 	then
+		cp ../jpf-core/main-locks.jpf ../jpf-core/main.jpf
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/examples/$1AppList appLists/examples/$1AppList2
 	else
 		print_usage	
@@ -64,9 +65,9 @@ execute_iotcheck_device()
 	   [ $1 == 'thermostats' ] ||
 	   [ $1 == 'valves' ] ||
 	   [ $1 == 'ventfanSwitches' ]
-	then 
+	then
+		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/device-interaction/$1AppList appLists/device-interaction/$1AppList2
-		echo "$1"
 	else
 		print_usage
 	fi
@@ -76,9 +77,9 @@ execute_iotcheck_device()
 execute_iotcheck_global()
 {
 	if [ $1 == 'globalStateVariables' ]
-	then
+	then	
+		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/global-state-variable-interaction/$1AppList appLists/global-state-variable-interaction/$1AppList2
-		echo "$1"
 	else
 		print_usage
 	fi

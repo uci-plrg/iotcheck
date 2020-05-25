@@ -40,8 +40,4 @@ apps=App1,App2
 # Timeout in minutes (default is 0 which means no timeout)
 timeout=30
 
-#search.class = gov.nasa.jpf.search.heuristic.RandomHeuristic
-#search.heuristic.beam_search=true
-#search.class = gov.nasa.jpf.search.heuristic.UserHeuristic
-#search.class = gov.nasa.jpf.search.heuristic.BFSHeuristic
-#search.class = gov.nasa.jpf.search.heuristic.DFSHeuristic
+search.class = gov.nasa.jpf.search.DFSearch
