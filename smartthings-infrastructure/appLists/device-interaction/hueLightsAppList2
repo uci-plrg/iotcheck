@@ -1,0 +1,14 @@
+door-state-to-color-light-hue-bulb.groovy
+hue-minimote.groovy
+hue-mood-lighting.groovy
+notify-me-with-hue.groovy
+step-notifier.groovy
+BetterLaundryMonitor.groovy
+Hue-Party-Mode.groovy
+mini-hue-controller.groovy
+# The following apps are removed
+###tweet-to-hue.groovy
+###03-sms-to-hue.groovy
+###jenkins-notifier.groovy
+###hue-lights-and-groups-and-scenes-oh-my.groovy
+###loft.groovy
