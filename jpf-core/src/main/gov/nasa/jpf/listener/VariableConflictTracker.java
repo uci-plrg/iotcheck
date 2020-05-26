@@ -30,6 +30,8 @@ import java.util.*;
 
 // TODO: Fix for Groovy's model-checking
 // TODO: This is a listener created to detect device conflicts and global variable conflicts
+
+// TODO: This is the old version of our conlfict tracker. Please see ConflictTracker.java.
 /**
  * Simple listener tool to track conflicts between 2 apps.
  * A conflict is defined as one app trying to change the state of a variable
