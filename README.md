@@ -178,5 +178,5 @@ We can run an experiment in this category by running the following command in th
     iotcheck/smartthings-infrastructure $ ./iotcheck.sh -g globalStateVariables
 ```
 
-For the purpose of understanding, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run, at least, for 30 minutes to check for conflicts.
+For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run, at least, for 30 minutes to check for conflicts.
 For more information about IoTCheck architecture explained in Section 7 in our paper, please see the [Wiki page of this repository](https://github.com/iotuser22/iotcheck/wiki).
