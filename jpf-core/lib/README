@@ -1,3 +1,0 @@
-1) All JAR files need to be extracted into their directories (see run.sh for the necessary directory names).
-2) JPF is then given the paths to both directories to model-check Groovy apps.
-3) There might be some other libraries that Groovy apps might need and the JAR files can be found in the Groovy path on your system.
