@@ -164,10 +164,10 @@ We can run an experiment in this category by running the following command in th
 For example, we can run
 
 ```
-    iotcheck/smartthings-infrastructure $ ./iotcheck.sh -d alarms
+    iotcheck/smartthings-infrastructure $ ./iotcheck.sh -d locks
 ```
 
-to run IoTCheck to check for conflicts between pairs in the `alarms` group.
+to run IoTCheck to check for conflicts between pairs in the `locks` group.
 
 We also have sub-groups for some of the groups: 
 
