@@ -1,7 +1,0 @@
-This is a new repository for the SmartThings execution infrastructure for Groovy.
-This project attempts to model-check SmartThings Groovy smart apps.
--------------------------------------------------------------------------------------------
-1. Put your groovy program in Extractor directory with the name App.groovy.
-2. Run the make command in smartthings-infrastructure directory.
-3. All the classes are created in the bin folder.
--------------------------------------------------------------------------------------------
