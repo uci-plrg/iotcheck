@@ -1,5 +1,10 @@
 # IoTCheck
-This is the repository for IoTCheck, a framework that model-checks smart home apps. Please read our paper titled **"Understanding and Automatically Detecting Conflicting Interactions between Smart Home Applications"** before using IoTCheck. 
+This is the repository for IoTCheck, a framework that model-checks smart home apps. Please read our paper before using IoTCheck.
+
+**Understanding and Automatically Detecting Conflicting Interactions between Smart Home Applications**\
+*Rahmadi Trimananda, Seyed Amir Hossein Aqajari, Jason Chuang, Brian Demsky, Guoqing Harry Xu, and Shan Lu,*\
+*Proceedings of the ACM SIGSOFT International Symposium on Foundations of Software Engineering 2020 (FSE 2020).*
+
 The following instructions explain how to quickly get started with IoTCheck. For more information about IoTCheck components, please see the [Wiki page of this repository](https://github.com/iotuser22/iotcheck/wiki).
 
 ## Getting Started
