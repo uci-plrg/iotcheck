@@ -67,6 +67,7 @@ execute_iotcheck_device()
 	   [ $1 == 'ventfanSwitches' ]
 	then
 		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
+		cp Extractor/Extractor_device-interaction.groovy Extractor/Extractor.groovy
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/device-interaction/$1AppList appLists/device-interaction/$1AppList2
 	else
 		print_usage
@@ -79,6 +80,7 @@ execute_iotcheck_global()
 	if [ $1 == 'globalStateVariables' ]
 	then	
 		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
+		cp Extractor/Extractor_global-variable-interaction.groovy Extractor/Extractor.groovy
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/global-state-variable-interaction/$1AppList appLists/global-state-variable-interaction/$1AppList2
 	else
 		print_usage
