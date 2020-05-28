@@ -9,7 +9,7 @@ The following instructions explain how to quickly get started with IoTCheck. For
 
 ## Getting Started
 One easy way to install IoTCheck is using our [Vagrant-packaged IoTCheck](https://github.com/iotuser22/iotcheck-vagrant). Nevertheless, if the necessary components are present on our system, we could also download IoTCheck directly from this repository and set it up correctly to run on our system (we developed IoTCheck on Ubuntu 16.04.6 LTS (Xenial Xerus). 
-Please see [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/bootstrap.sh) for the necessary components and [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/data/setup.sh) for the necessary steps to correctly install IoTCheck after downloading it from this repository.
+Please see [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/bootstrap.sh) and [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/data/setup.sh) for the necessary components and steps to correctly install IoTCheck after downloading it from this repository.
 
 ## Examples
 We have prepared 2 example runs to quickly test that the IoTCheck installation is working perfectly and to understand the output of IoTCheck runs.
@@ -20,7 +20,7 @@ We have prepared 2 example runs to quickly test that the IoTCheck installation i
     $ cd iotcheck/smartthings-infrastructure/
 ```
 
-2. Run the `iotcheck.sh` script for both non-conflict and conflict examples. Each example takes about 1-2 minutes to run and messages will be printed out on the screen.
+2. Run the `iotcheck.sh` script for both non-conflict and conflict examples. Each example takes a few minutes to run and messages will be printed out on the screen.
 
 ```
     iotcheck/smartthings-infrastructure $ ./iotcheck.sh -e exampleNonConflicts
@@ -65,7 +65,7 @@ loaded code:        classes=786,methods=15362
 ====================================================== search finished: 5/26/20 3:54 PM
 ```
 
-Both log files will show the line `no errors detected`, because there no conflicts were found between the two apps in each pair.
+Both log files will show the line `no errors detected`, because there are no conflicts were found between the two apps in each pair.
 
 #### Conflict Examples
 The log files for the conflict example runs can be found in `iotcheck/logs/exampleConflicts`. There are two log files for two pairs: 
@@ -169,10 +169,10 @@ For example, we can run
 
 to run IoTCheck to check for conflicts between pairs in the `locks` group.
 
-We also have sub-groups for some of the groups: 
+For some of the groups, we run the experiments for their individual sub-groups:
 
-1. For the `switches` group, we have `switches`, `lightSwitches`, `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`.
-2. For the `lights` group, we have `hueLights` and `nonHueLights`.
+1. For the `switches` group, we run the experiments for `switches`, `lightSwitches`, `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`.
+2. For the `lights` group, we run the experiments for `hueLights` and `nonHueLights`.
 
 Note: `switches` means the `Switches - General` group and `speeches` means the `Speech Synthesizers` group in the paper.
 
@@ -183,7 +183,7 @@ We can run an experiment in this category by running the following command in th
     iotcheck/smartthings-infrastructure $ ./iotcheck.sh -g globalStateVariables
 ```
 
-For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run, at least, for 30 minutes to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/iotuser22/iotcheck/wiki/IoTCheck-JPF).
-We tabulated the results reported in the log files in each category and reported the summary in Table 6 of our paper. More details of our manual study and experimental results are documented [here](https://drive.google.com/open?id=1pFG2dn4seAx1wfTQIItZqQiCoAXo8_9d).
+For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run for up to [30 minutes (or 1 hour if IoTCheck also runs with the `RandomHeuristic` search strategy)](https://github.com/iotuser22/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration) to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/iotuser22/iotcheck/wiki/IoTCheck-JPF).
+We tabulated the results reported in the log files in each category and reported the summary in Table 6 of our paper. Please note that there could be 2 log files that are produced by the different orderings of the apps in the pair. For example, for the pair `good-night-house.groovy` and `nfc-tag-toggle.groovy`, there could be no conflict reported in `good-night-house.groovy--nfc-tag-toggle.groovy.log`, but there could be a conflict reported in `nfc-tag-toggle.groovy--good-night-house.groovy.log`. We checked both orderings in our tabulation. More details of our manual study and experimental results are documented [here](https://github.com/iotuser22/iotcheck-data).
 
 For more information about IoTCheck architecture explained in **Section 7** in our paper, please see the [Wiki page of this repository](https://github.com/iotuser22/iotcheck/wiki).
