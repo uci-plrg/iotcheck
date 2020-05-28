@@ -63,7 +63,7 @@ def rootPage() {
 
 			section("Rules For Dimming") {
 				href(name: "toSchedulingPage", page: "schedulingPage", title: "Automation")
-				input(name: "manualOverride", type: "enum", options: ["Cancel dimming","Jump to the end"], title: "When one of the dimmers is manually turned off…", description: "dimming will continue", required: false, multiple: false)
+				input(name: "manualOverride", type: "enum", options: ["Cancel dimming","Jump to the end"], title: "When one of the dimmers is manually turned offâ€¦", description: "dimming will continue", required: false, multiple: false)
 				href(name: "toCompletionPage", title: "Completion Actions", page: "completionPage")
 			}
 
@@ -585,8 +585,7 @@ int dynamicLevel(dimmer, percentComplete) {
 	def end = dynamicEndLevel()
 
 	if (!percentComplete) {
-		return 77	
-		//return start
+		return start
 	}
 
 	def totalDiff = end - start
@@ -730,7 +729,7 @@ def completionPercentage() {
 
 	//return percentComplete
 	// We do not have the notion of time for model-checking
-	return 0
+	return 100
 }
 
 int totalRunTimeMillis() {
