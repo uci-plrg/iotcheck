@@ -14,7 +14,7 @@ def checkResult(logDirName):
 		if "no errors detected" in line:
 			result = "no conflict"
 			break
-		elif "java.lang.RuntimeException: Conflict between apps App1 and App2:" in line:
+		elif "java.lang.RuntimeException: Conflict found between the two apps." in line:
 			result = "conflict"
 			break
 		# TODO: We are now detecting Direct-Direct interaction in the analysis
