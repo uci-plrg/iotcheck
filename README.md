@@ -8,7 +8,7 @@ This is the repository for IoTCheck, a framework that model-checks smart home ap
 The following instructions explain how to quickly get started with IoTCheck. For more information about IoTCheck components, please see the [Wiki page of this repository](https://github.com/uci-plrg/iotcheck/wiki).
 
 ## Getting Started
-One easy way to install IoTCheck is using our [Vagrant-packaged IoTCheck](https://github.com/uci-plrg/iotcheck-vagrant). Nevertheless, if the necessary components are present on our system, we could also download IoTCheck directly from this repository and set it up correctly to run on our system (we developed IoTCheck on Ubuntu 16.04.6 LTS (Xenial Xerus). 
+One easy way to install IoTCheck is using our [Vagrant-packaged IoTCheck](https://github.com/uci-plrg/iotcheck-vagrant). Nevertheless, if the necessary components are present on our system, we could also download IoTCheck directly from this repository and set it up correctly to run on our system (our team has developed IoTCheck on Ubuntu 16.04.6 LTS (Xenial Xerus). 
 Please see [this script](https://github.com/uci-plrg/iotcheck-vagrant/blob/master/bootstrap.sh) and [this script](https://github.com/uci-plrg/iotcheck-vagrant/blob/master/data/setup.sh) for the necessary components and steps to correctly install IoTCheck after downloading it from this repository.
 
 ## Examples
@@ -116,7 +116,7 @@ java.lang.RuntimeException: Conflict found between the two apps. App1 has writte
 the attribute: currentLock while App2 is writing the value: "unlocked" to the same variable!
 ```
 
-which means that a conflict has been found between the two apps: `enhanced-auto-lock-door.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App1`. `App1` wrote the value `locked` to the shared lock state variable `currentLock`, and `App2` is found to subsequently write to the same variable with the value `unlocked`. Since one attempts to lock and the other unlock the door, IoTCheck reports that these two apps have a conflict.
+which means that a conflict has been found between the two apps: `enhanced-auto-lock-door.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App2`. `App1` wrote the value `locked` to the shared lock state variable `currentLock`, and `App2` is found to subsequently write to the same variable with the value `unlocked`. Since one attempts to lock and the other unlock the door, IoTCheck reports that these two apps have a conflict.
 
 ## Experiments
 Our paper explains the 3 categories of interactions between smart home apps, namely **device interaction**, **physical-medium interaction**, and **global-variable interaction**. The details of our manual study and experimental results are documented [here](https://github.com/uci-plrg/iotcheck-data).
@@ -179,7 +179,7 @@ The app `enhanced-auto-lock-door.groovy` is the only one uncommented in `example
 1. `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, and
 2. `enhanced-auto-lock-door.groovy` as `App1` and `single-button-controller.groovy` as `App2`.
 
-In other words, if we just want to have IoTCheck execute a specific pair, e.g., `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, then we have to comment out `single-button-controller.groovy` in `exampleConflictsAppList2` by putting `#` in front of it. Furthermore, IoTCheck also allows the pair of apps to be executed in different orders, so we could also uncomment only `nfc-tag-toggle.groovy` in `exampleConflictsAppList` and `enhanced-auto-lock-door.groovy` in `exampleConflictsAppList2`. This will form a pair: `nfc-tag-toggle.groovy` as `App1` and `enhanced-auto-lock-door.groovy` as `App2`.
+In other words, if we just want to have IoTCheck model-check a specific pair, e.g., `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, then we have to comment out `single-button-controller.groovy` in `exampleConflictsAppList2` by putting `#` in front of it. Furthermore, IoTCheck also allows the pair of apps to be executed in different orders, so we could also uncomment only `nfc-tag-toggle.groovy` in `exampleConflictsAppList` and `enhanced-auto-lock-door.groovy` in `exampleConflictsAppList2`. This will form a pair: `nfc-tag-toggle.groovy` as `App1` and `enhanced-auto-lock-door.groovy` as `App2`.
 
 #### Device Interaction
 We can run an experiment in this category by running the following command in the directory `iotcheck/smartthings-infrastructure`.
@@ -198,8 +198,8 @@ to run IoTCheck to check for conflicts between pairs in the `locks` group.
 
 For some of the groups, we run the experiments for their individual sub-groups:
 
-1. For the `switches` group, we run the experiments for `switches`, `lightSwitches`, `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`.
-2. For the `lights` group, we run the experiments for `hueLights` and `nonHueLights`.
+1. For the `Switches` group, we run the experiments for `switches`, `lightSwitches`, `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`.
+2. For the Lights` group, we run the experiments for `hueLights` and `nonHueLights`.
 
 Note: `switches` means the `Switches - General` group and `speeches` means the `Speech Synthesizers` group in the paper.
 
@@ -213,6 +213,6 @@ We can run an experiment in this category by running the following command in th
 For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run for up to [30 minutes (or 1 hour if IoTCheck also runs with the `RandomHeuristic` search strategy)](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration) to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF).
 We tabulated the results reported in the log files in each category and reported the summary in Table 6 of our paper. 
 
-Please note that there could be 2 log files that are produced by the different orderings of the apps in the pair. For example, for the pair `good-night-house.groovy` and `nfc-tag-toggle.groovy`, there could be no conflict reported in `good-night-house.groovy--nfc-tag-toggle.groovy.log` (`good-night-house.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App2`), but there could be a conflict reported in `nfc-tag-toggle.groovy--good-night-house.groovy.log` (`nfc-tag-toggle.groovy` is `App1` and `good-night-house.groovy` is `App2`). We checked both orderings in our tabulation. More details of our manual study and experimental results are documented [here](https://github.com/iotuser22/iotcheck-data).
+Please note that there could be 2 log files that are produced by the different orderings of the apps in the pair. For example, for the pair `good-night-house.groovy` and `nfc-tag-toggle.groovy`, there could be no conflict reported in `good-night-house.groovy--nfc-tag-toggle.groovy.log` (`good-night-house.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App2`), but there could be a conflict reported in `nfc-tag-toggle.groovy--good-night-house.groovy.log` (`nfc-tag-toggle.groovy` is `App1` and `good-night-house.groovy` is `App2`). We checked both orderings in our tabulation. More details of our manual study and experimental results are documented [here](https://github.com/uci-plrg/iotcheck-data).
 
-For more information about IoTCheck architecture explained in **Section 7** in our paper, please see the [Wiki page of this repository](https://github.com/iotuser22/iotcheck/wiki). If you have any questions regarding IoTCheck, please do not hesitate to contact the [main author of the paper](https://rtrimana.github.io/cv/).
+For more information about IoTCheck architecture explained in **Section 7** in our paper, please see the [Wiki page of this repository](https://github.com/uci-plrg/iotcheck/wiki). If you have any questions regarding IoTCheck, please do not hesitate to contact the [main author of the paper](https://rtrimana.github.io/cv/).
