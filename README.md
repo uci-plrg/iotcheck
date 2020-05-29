@@ -5,11 +5,11 @@ This is the repository for IoTCheck, a framework that model-checks smart home ap
 *Rahmadi Trimananda, Seyed Amir Hossein Aqajari, Jason Chuang, Brian Demsky, Guoqing Harry Xu, and Shan Lu,*\
 *Proceedings of the ACM SIGSOFT International Symposium on Foundations of Software Engineering 2020 (FSE 2020).*
 
-The following instructions explain how to quickly get started with IoTCheck. For more information about IoTCheck components, please see the [Wiki page of this repository](https://github.com/iotuser22/iotcheck/wiki).
+The following instructions explain how to quickly get started with IoTCheck. For more information about IoTCheck components, please see the [Wiki page of this repository](https://github.com/uci-plrg/iotcheck/wiki).
 
 ## Getting Started
-One easy way to install IoTCheck is using our [Vagrant-packaged IoTCheck](https://github.com/iotuser22/iotcheck-vagrant). Nevertheless, if the necessary components are present on our system, we could also download IoTCheck directly from this repository and set it up correctly to run on our system (we developed IoTCheck on Ubuntu 16.04.6 LTS (Xenial Xerus). 
-Please see [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/bootstrap.sh) and [this script](https://github.com/iotuser22/iotcheck-vagrant/blob/master/data/setup.sh) for the necessary components and steps to correctly install IoTCheck after downloading it from this repository.
+One easy way to install IoTCheck is using our [Vagrant-packaged IoTCheck](https://github.com/uci-plrg/iotcheck-vagrant). Nevertheless, if the necessary components are present on our system, we could also download IoTCheck directly from this repository and set it up correctly to run on our system (we developed IoTCheck on Ubuntu 16.04.6 LTS (Xenial Xerus). 
+Please see [this script](https://github.com/uci-plrg/iotcheck-vagrant/blob/master/bootstrap.sh) and [this script](https://github.com/uci-plrg/iotcheck-vagrant/blob/master/data/setup.sh) for the necessary components and steps to correctly install IoTCheck after downloading it from this repository.
 
 ## Examples
 We have prepared 2 example runs to quickly test that the IoTCheck installation is working perfectly and to understand the output of IoTCheck runs.
@@ -119,7 +119,7 @@ the attribute: currentLock while App2 is writing the value: "unlocked" to the sa
 which means that a conflict has been found between the two apps: `enhanced-auto-lock-door.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App1`. `App1` wrote the value `locked` to the shared lock state variable `currentLock`, and `App2` is found to subsequently write to the same variable with the value `unlocked`. Since one attempts to lock and the other unlock the door, IoTCheck reports that these two apps have a conflict.
 
 ## Experiments
-Our paper explains the 3 categories of interactions between smart home apps, namely **device interaction**, **physical-medium interaction**, and **global-variable interaction**. The details of our manual study and experimental results are documented [here](https://drive.google.com/open?id=1pFG2dn4seAx1wfTQIItZqQiCoAXo8_9d).
+Our paper explains the 3 categories of interactions between smart home apps, namely **device interaction**, **physical-medium interaction**, and **global-variable interaction**. The details of our manual study and experimental results are documented [here](https://github.com/uci-plrg/iotcheck-data).
 IoTCheck only prints out warning messages for potential conflicts in the **physical-medium interaction** category since detecting a conflict in this interaction category requires specific conditions (please read the paper for more information).
 We use the script `iotcheck.sh` to run experiments in each category and group of apps. Typing `./iotcheck.sh` in the directory `iotcheck/smartthings-infrastructure` will print out the following help information on how to execute the individual experiments.
 
@@ -210,7 +210,7 @@ We can run an experiment in this category by running the following command in th
     iotcheck/smartthings-infrastructure $ ./iotcheck.sh -g globalStateVariables
 ```
 
-For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run for up to [30 minutes (or 1 hour if IoTCheck also runs with the `RandomHeuristic` search strategy)](https://github.com/iotuser22/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration) to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/iotuser22/iotcheck/wiki/IoTCheck-JPF).
+For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run for up to [30 minutes (or 1 hour if IoTCheck also runs with the `RandomHeuristic` search strategy)](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration) to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF).
 We tabulated the results reported in the log files in each category and reported the summary in Table 6 of our paper. 
 
 Please note that there could be 2 log files that are produced by the different orderings of the apps in the pair. For example, for the pair `good-night-house.groovy` and `nfc-tag-toggle.groovy`, there could be no conflict reported in `good-night-house.groovy--nfc-tag-toggle.groovy.log` (`good-night-house.groovy` is `App1` and `nfc-tag-toggle.groovy` is `App2`), but there could be a conflict reported in `nfc-tag-toggle.groovy--good-night-house.groovy.log` (`nfc-tag-toggle.groovy` is `App1` and `good-night-house.groovy` is `App2`). We checked both orderings in our tabulation. More details of our manual study and experimental results are documented [here](https://github.com/iotuser22/iotcheck-data).
