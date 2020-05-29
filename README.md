@@ -176,8 +176,8 @@ single-button-controller.groovy
 
 The app `enhanced-auto-lock-door.groovy` is the only one uncommented in `exampleConflictsAppList`. Thus, it is taken by IoTCheck and paired up with `nfc-tag-toggle.groovy` and `single-button-controller.groovy`, as the two uncommented apps in `exampleConflictsAppList2`, to form 2 pairs: 
 
-1. `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`
-2. `enhanced-auto-lock-door.groovy` as `App1` and `single-button-controller.groovy` as `App2`
+1. `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, and
+2. `enhanced-auto-lock-door.groovy` as `App1` and `single-button-controller.groovy` as `App2`.
 
 In other words, if we just want to have IoTCheck execute a specific pair, e.g., `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, then we have to comment out `single-button-controller.groovy` in `exampleConflictsAppList2` by putting `#` in front of it. Furthermore, IoTCheck also allows the pair of apps to be executed in different orders, so we could also uncomment only `nfc-tag-toggle.groovy` in `exampleConflictsAppList` and `enhanced-auto-lock-door.groovy` in `exampleConflictsAppList2`. This will form a pair: `nfc-tag-toggle.groovy` as `App1` and `enhanced-auto-lock-door.groovy` as `App2`.
 
