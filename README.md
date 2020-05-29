@@ -150,9 +150,36 @@ Usage:  iotcheck.sh [options]
 
         -g      globalStateVariables
 ```
-All the log files produced by these runs are collected in the directory `iotcheck/logs/`. Each sub-directory contains the log files for the respective category. The script runs IoTCheck for pairs listed in the files stored in `iotcheck/smartthings-infrastructure/appLists/`.
-For example, it uses the files `alarmsAppList` and `alarmsAppList2` in `iotcheck/smartthings-infrastructure/appLists/device-interaction` to form pairs in the `alarms` group and run IoTCheck to model-check each pair. We can put the sign `#` in front of a specific app name in the file to tell IoTCheck to exclude that app in the pairing process. We can see this being done in the app list files in `iotcheck/smartthings-infrastructure/appLists/examples`. 
-These files are used to generate pairs for the non-conflict and conflict examples explained above.
+All the log files produced by these runs are collected in the directory `iotcheck/logs/`. Each sub-directory contains the log files for the respective category. 
+
+#### Forming Pairs
+The script runs IoTCheck for pairs listed in the files stored in `iotcheck/smartthings-infrastructure/appLists/`.
+For example, it uses the files `locksAppList` and `locksAppList2` in `iotcheck/smartthings-infrastructure/appLists/device-interaction` to form pairs in the `locks` group and run IoTCheck to model-check each pair. 
+We can put the sign `#` in front of a specific app name in the file to tell IoTCheck to exclude that app in the pairing process. We can see this being done in the app list files in `iotcheck/smartthings-infrastructure/appLists/examples`. 
+In the file `exampleConflictsAppList` we can find the following list.
+
+```
+enhanced-auto-lock-door.groovy
+#good-night-house.groovy
+#nfc-tag-toggle.groovy
+#single-button-controller.groovy
+```
+
+And, in the file `exampleConflictsAppList2` we can find the following list.
+
+```
+#enhanced-auto-lock-door.groovy
+#good-night-house.groovy
+nfc-tag-toggle.groovy
+single-button-controller.groovy
+```
+
+The app `enhanced-auto-lock-door.groovy` is the only one uncommented in `exampleConflictsAppList`. Thus, it is taken by IoTCheck and paired up with `nfc-tag-toggle.groovy` and `single-button-controller.groovy`, as the two uncommented apps in `exampleConflictsAppList2`, to form 2 pairs: 
+
+1. `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`
+2. `enhanced-auto-lock-door.groovy` as `App1` and `single-button-controller.groovy` as `App2`
+
+In other words, if we just want to have IoTCheck execute a specific pair, e.g., `enhanced-auto-lock-door.groovy` as `App1` and `nfc-tag-toggle.groovy` as `App2`, then we have to comment out `single-button-controller.groovy` in `exampleConflictsAppList2` by putting `#` in front of it. Furthermore, IoTCheck also allows the pair of apps to be executed in different orders, so we could also uncomment only `nfc-tag-toggle.groovy` in `exampleConflictsAppList` and `enhanced-auto-lock-door.groovy` in `exampleConflictsAppList2`. This will form a pair: `nfc-tag-toggle.groovy` as `App1` and `enhanced-auto-lock-door.groovy` as `App2`.
 
 #### Device Interaction
 We can run an experiment in this category by running the following command in the directory `iotcheck/smartthings-infrastructure`.
