@@ -8,7 +8,6 @@ energy-saver.groovy
 gentle-wake-up.groovy
 good-night.groovy
 humidity-alert.groovy
-jenkins-notifier.groovy
 make-it-so.groovy
 monitor-on-sense.groovy
 nfc-tag-toggle.groovy
@@ -21,5 +20,6 @@ the-big-switch.groovy
 turn-it-on-for-5-minutes.groovy
 BetterLaundryMonitor.groovy
 # The following apps are removed
+###jenkins-notifier.groovy
 ###garage-switch.groovy
 ###loft.groovy
