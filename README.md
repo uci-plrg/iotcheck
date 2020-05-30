@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/267887969.svg)](https://zenodo.org/badge/latestdoi/267887969)
 # IoTCheck
 This is the repository for IoTCheck, a framework that model-checks smart home apps. Please read our paper before using IoTCheck.
 
