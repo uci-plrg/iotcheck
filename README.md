@@ -210,6 +210,10 @@ We can run an experiment in this category by running the following command in th
     iotcheck/smartthings-infrastructure $ ./iotcheck.sh -g globalStateVariables
 ```
 
+#### Physical-Medium Interaction
+IoTCheck only [gives a warning](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-Infrastructure#iotcheck-configuration-and-preprocessing) when it detects that the interaction between apps in a pair may result in a Physical-Medium Conflict, but it does not report it as a real conflict (please see **Section 5 - Physical Factors** in the paper).
+
+#### Further Notes
 For the purpose of testing and understanding IoTCheck, we recommend running IoTCheck for categories with shorter lists of apps, e.g., `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`, to see how it performs model checking and generates results reported in log files. The other categories could run for hours, days, or weeks as we have tens to hundreds of pairs and each pair is run for up to [30 minutes (or 1 hour if IoTCheck also runs with the `RandomHeuristic` search strategy)](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration) to check for conflicts. Alternatively, the timeout could be made shorter, e.g., 5 minutes, by [changing the option in `main.jpf`](https://github.com/uci-plrg/iotcheck/wiki/IoTCheck-JPF#jpf-main-configuration).
 We tabulated the results reported in the log files in each category and reported the summary in Table 6 of our paper. 
 
