@@ -66,7 +66,7 @@ loaded code:        classes=786,methods=15362
 ====================================================== search finished: 5/26/20 3:54 PM
 ```
 
-Both log files will show the line `no errors detected`, because there are no conflicts were found between the two apps in each pair.
+Both log files will show the line `no errors detected`, because there were no conflicts found between the two apps in each pair.
 
 #### Conflict Examples
 The log files for the conflict example runs can be found in `iotcheck/logs/exampleConflicts`. There are two log files for two pairs: 
