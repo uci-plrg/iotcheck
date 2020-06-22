@@ -36,7 +36,7 @@ print_usage()
 # Execute IoTCheck for examples
 execute_iotcheck_example()
 {
-	if [ $1 == 'exampleConflicts' ] || [ $1 == 'exampleNonConflicts' ]
+	if [[ $1 == 'exampleConflicts' ]] || [[ $1 == 'exampleNonConflicts' ]]
 	then
 		cp ../jpf-core/main-locks.jpf ../jpf-core/main.jpf
 		python3 ModelCheck.py ../jpf-core/ ../logs/$1/ ../smartapps/ appLists/examples/$1AppList appLists/examples/$1AppList2
@@ -49,22 +49,22 @@ execute_iotcheck_example()
 execute_iotcheck_device()
 {
 	
-	if [ $1 == 'acfanheaterSwitches' ] || 
-	   [ $1 == 'alarms' ] ||
-	   [ $1 == 'cameras' ] ||
-	   [ $1 == 'cameraSwitches' ] ||
-	   [ $1 == 'dimmers' ] ||
-	   [ $1 == 'hueLights' ] ||
-	   [ $1 == 'lightSwitches' ] ||
-	   [ $1 == 'locks' ] ||
-	   [ $1 == 'musicPlayers' ] ||
-	   [ $1 == 'nonHueLights' ] ||
-	   [ $1 == 'relaySwitches' ] ||
-	   [ $1 == 'speeches' ] ||
-	   [ $1 == 'switches' ] ||
-	   [ $1 == 'thermostats' ] ||
-	   [ $1 == 'valves' ] ||
-	   [ $1 == 'ventfanSwitches' ]
+	if [[ $1 == 'acfanheaterSwitches' ]] || 
+	   [[ $1 == 'alarms' ]] ||
+	   [[ $1 == 'cameras' ]] ||
+	   [[ $1 == 'cameraSwitches' ]] ||
+	   [[ $1 == 'dimmers' ]] ||
+	   [[ $1 == 'hueLights' ]] ||
+	   [[ $1 == 'lightSwitches' ]] ||
+	   [[ $1 == 'locks' ]] ||
+	   [[ $1 == 'musicPlayers' ]] ||
+	   [[ $1 == 'nonHueLights' ]] ||
+	   [[ $1 == 'relaySwitches' ]] ||
+	   [[ $1 == 'speeches' ]] ||
+	   [[ $1 == 'switches' ]] ||
+	   [[ $1 == 'thermostats' ]] ||
+	   [[ $1 == 'valves' ]] ||
+	   [[ $1 == 'ventfanSwitches' ]]
 	then
 		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
 		cp Extractor/Extractor_device-interaction.groovy Extractor/Extractor.groovy
@@ -77,7 +77,7 @@ execute_iotcheck_device()
 # Execute IoTCheck for global-variable interaction
 execute_iotcheck_global()
 {
-	if [ $1 == 'globalStateVariables' ]
+	if [[ $1 == 'globalStateVariables' ]]
 	then	
 		cp ../jpf-core/main-$1.jpf ../jpf-core/main.jpf
 		cp Extractor/Extractor_global-variable-interaction.groovy Extractor/Extractor.groovy
@@ -91,14 +91,14 @@ execute_iotcheck_global()
 # Main body of script
 ###
 # Get input argument and execute the right function
-if [ $1 == '-e' ]
+if [[ $1 == '-e' ]]
 then
 	execute_iotcheck_example $2
-elif [ $1 == '-d' ]
+elif [[ $1 == '-d' ]]
 then
 	execute_iotcheck_device $2
 
-elif [ $1 == '-g' ]
+elif [[ $1 == '-g' ]]
 then
 	execute_iotcheck_global $2
 else
