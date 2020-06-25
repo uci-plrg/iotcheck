@@ -200,7 +200,7 @@ to run IoTCheck to check for conflicts between pairs in the `locks` group.
 For some of the groups, we run the experiments for their individual sub-groups:
 
 1. For the `Switches` group, we run the experiments for `switches`, `lightSwitches`, `acfanheaterSwitches`, `cameraSwitches`, and `ventfanSwitches`.
-2. For the Lights` group, we run the experiments for `hueLights` and `nonHueLights`.
+2. For the `Lights` group, we run the experiments for `hueLights` and `nonHueLights`.
 
 Note: `switches` means the `Switches - General` group and `speeches` means the `Speech Synthesizers` group in the paper.
 
