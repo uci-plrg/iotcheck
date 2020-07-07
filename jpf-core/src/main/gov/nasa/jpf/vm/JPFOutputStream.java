@@ -120,8 +120,10 @@ public class JPFOutputStream extends OutputStream {
   public void print (ElementInfo ei, FinalBitSet filterMask){
     boolean isObject = ei.isObject();
     ClassInfo ci = ei.getClassInfo();
-    
-    int ref = (useSid) ? ei.getSid() : ei.getObjectRef();
+
+    // TODO: Fix for Groovy's model-checking
+    // TODO: Change of sid assignment strategy since the previous one caused a bug with SmartThings object filtering
+    int ref = (useSid) ? ((int)ei.getSid()) : ei.getObjectRef();
     ps.printf("@%x ", ref);
     
     if (isObject){

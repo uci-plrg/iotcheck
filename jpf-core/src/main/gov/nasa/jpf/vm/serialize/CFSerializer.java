@@ -55,21 +55,16 @@ public class CFSerializer extends FilteringSerializer {
   // over the serialized objects to reset their sids. This works by resetting
   // the sid to 0 upon backtrack, and counting either upwards from 1 or downwards
   // from -1, but store the absolute value in the serialization stream
-  boolean positiveSid;
-
-  int sidCount;
+  // TODO: Fix for Groovy's model-checking
+  // TODO: Change of sid assignment strategy since the previous one caused a bug with SmartThings object filtering
+  long initsidCount=0;
+  long sidCount=1;
 
   @Override
   protected void initReferenceQueue() {
     super.initReferenceQueue();
-
-    if (positiveSid){
-      positiveSid = false;
-      sidCount = -1;
-    } else {
-      positiveSid = true;
-      sidCount = 1;
-    }
+    
+    initsidCount = sidCount - 1;
   }
 
   // might be overriden in subclasses to conditionally queue objects
@@ -86,30 +81,20 @@ public class CFSerializer extends FilteringSerializer {
       ClassInfo ci = ei.getClassInfo();
 
       if (SmartThingsConfig.instance.ignoreClass(ci)) {
-        ei.setSid(0);
+        ei.setSid(initsidCount);
         buf.add(0);
         return;
       }
+      long sid = ei.getSid();
       
-      int sid = ei.getSid();
-
-      if (positiveSid){ // count sid upwards from 1
-        if (sid <= 0){  // not seen before in this serialization run
+      if (sid <= initsidCount){ // count sid upwards from 1
           sid = sidCount++;
           ei.setSid(sid);
           queueReference(ei);
-        }
-      } else { // count sid downwards from -1
-        if (sid >= 0){ // not seen before in this serialization run
-          sid = sidCount--;
-          ei.setSid(sid);
-          queueReference(ei);
-        }
-        sid = -sid;
       }
 
       // note that we always add the absolute sid value
-      buf.add(sid);
+      buf.add((int)(sid - initsidCount));
     }
   }
 
@@ -188,6 +173,6 @@ public class CFSerializer extends FilteringSerializer {
   
   @Override
   protected int getSerializedReferenceValue (ElementInfo ei){
-    return Math.abs(ei.getSid());
+    return (int)(ei.getSid()-initsidCount);
   }
 }

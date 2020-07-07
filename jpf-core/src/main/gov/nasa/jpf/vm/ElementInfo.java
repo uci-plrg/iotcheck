@@ -137,7 +137,9 @@ public abstract class ElementInfo implements Cloneable {
 
   // cache for a serialized representation of the object, which can be used
   // by state-matching. Value interpretation depends on the configured Serializer
-  protected int sid;
+  // TODO: Fix for Groovy's model-checking
+  // TODO: Change of sid assignment strategy since the previous one caused a bug with SmartThings object filtering
+  protected long sid;
 
 
   // helpers for state storage/restore processing, to avoid explicit iterators on
@@ -259,11 +261,11 @@ public abstract class ElementInfo implements Cloneable {
   
   
   //--- sids are only supposed to be used by the Serializer
-  public void setSid(int id){
+  public void setSid(long id){
     sid = id;
   }
 
-  public int getSid() {
+  public long getSid() {
     return sid;
   }
 

@@ -147,15 +147,23 @@ public class SmartThingsConfig
     return sofar;
   }
 
+  boolean checkName(String name) {
+    if (name.equals("call"))
+      return true;
+    return (name.charAt(0) == '[' && name.charAt(name.length()-1)==']');
+  }
+  
   @Override
   public FramePolicy ammendFramePolicy(MethodInfo mi, FramePolicy sofar) {
     ClassInfo ci = mi.getClassInfo();
-    if (ignoreClass(ci)) {
+    // TODO: Fix for Groovy's model-checking
+    // TODO: Change of sid assignment strategy since the previous one caused a bug with SmartThings object filtering
+    if (ignoreClass(ci) || checkName(mi.getName())) {
       sofar.includeLocals = false;
       sofar.includeOps = false;
       sofar.includePC = false;
     } else {
-      //      System.out.println("Including M: " +mi);
+      //            System.out.println("Including M: " +mi.getName());
     }
 
     return sofar;
