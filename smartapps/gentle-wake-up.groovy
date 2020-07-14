@@ -608,7 +608,7 @@ private completion() {
 
 	stop("schedule")
 
-	//handleCompletionSwitches()
+	handleCompletionSwitches()
 
 	//handleCompletionMessaging()
 
@@ -618,7 +618,9 @@ private completion() {
 private handleCompletionSwitches() {
 	completionSwitches.each { completionSwitch ->
 
-		def isDimmer = hasSetLevelCommand(completionSwitch)
+		//def isDimmer = hasSetLevelCommand(completionSwitch)
+		// TODO: hasSetLevelCommand is not fully supported
+		def isDimmer = false
 
 		if (completionSwitchesLevel && isDimmer) {
 			completionSwitch.setLevel(completionSwitchesLevel)
