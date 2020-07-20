@@ -69,14 +69,18 @@ def presence(evt)
 		if (evt.value == "present") {
 
 			def person = getPerson(evt)
-			def recentNotPresent = person.statesSince("presence", t0).find{it.value == "not present"}
+			def recentNotPresent
+			if (person)
+				recentNotPresent = person.statesSince("presence", t0).find{it.value == "not present"}
+			
 			if (recentNotPresent) {
 				//log.debug "skipping notification of arrival of Person because last departure was only ${now() - recentNotPresent.date.time} msec ago"
 				// Commenting this out since there could be a null value error
 				log.debug "skipping notification of arrival of Person"
 			}
 			else {
-				def message = "${person.displayName} arrived at home, changing mode to '${newMode}'"
+				//def message = "${person.displayName} arrived at home, changing mode to '${newMode}'"
+				def message = "Someone arrived at home, changing mode to '${newMode}'"
 				send(message)
 				setLocationMode(newMode)
 			}
